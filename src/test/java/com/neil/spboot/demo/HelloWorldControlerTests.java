@@ -2,9 +2,14 @@ package com.neil.spboot.demo;
 
 import com.neil.spboot.controller.HelloWorldController;
 import com.neil.spboot.controller.NeilController;
+import com.neil.spboot.domain.User;
+import com.neil.spboot.repository.UserRepository;
+import lombok.extern.log4j.Log4j;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -14,14 +19,21 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 /**
  * @author nibaoshan
  * @create 2017-11-29 14:11
  * @desc
  **/
+@Log4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class HelloWorldControlerTests {
+    @Autowired
+    private UserRepository userRepository;
+
     private MockMvc mvc;
     @Before
     public void setUp() throws Exception {
@@ -39,5 +51,21 @@ public class HelloWorldControlerTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
+    }
+
+    @Test
+    public  void  UserRepositoryTests(){
+            Date date = new Date();
+            DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
+            String formattedDate = dateFormat.format(date);
+
+            User user1= User.builder()
+                    .userName("aa1")
+                    .email("aa@126.com")
+                    .password("aa123456")
+                    .build();
+            User i= userRepository.save(user1);
+            log.info("userRepository.save: "+i);
+
     }
 }
