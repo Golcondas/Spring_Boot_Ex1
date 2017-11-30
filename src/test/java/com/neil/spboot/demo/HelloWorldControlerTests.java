@@ -59,13 +59,25 @@ public class HelloWorldControlerTests {
             DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
             String formattedDate = dateFormat.format(date);
 
-            User user1= User.builder()
-                    .userName("aa1")
-                    .email("aa@126.com")
-                    .password("aa123456")
-                    .build();
-            User i= userRepository.save(user1);
-            log.info("userRepository.save: "+i);
+//            User user1= User.builder()
+//                    .userName("aa1")
+//                    .email("aa@126.com")
+//                    .password("aa123456")
+//                    .build();
+//            User i= userRepository.save(user1);
+//            log.info("userRepository.save: "+i);
+
+        User user2= User.builder()
+                .nickName("美男子")
+                .regTime(new Date())
+                .account("neilaccount")
+                .fullname("XXX")
+                .userName("aa1")
+                .email("aa@126.com")
+                .password("aa123456")
+                .build();
+        User j= userRepository.save(user2);
+        log.info("userRepository.save: "+j);
 
     }
 }
