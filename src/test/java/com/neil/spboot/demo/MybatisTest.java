@@ -1,11 +1,12 @@
 package com.neil.spboot.demo;
 
-import com.neil.spboot.mybatis.mapper.neilDomainMapper;
-import com.neil.spboot.mybatis.model.neilDomain;
+import com.neil.spboot.mybatis.mapper.NeilMapper;
+import com.neil.spboot.mybatis.mapper.studentMapper;
+import com.neil.spboot.mybatis.model.Neil;
+import com.neil.spboot.mybatis.model.student;
 import lombok.extern.log4j.Log4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -17,20 +18,23 @@ import org.springframework.test.context.junit4.SpringRunner;
  **/
 @Log4j
 @RunWith(SpringRunner.class)
-@MapperScan("com.neil.spboot.mybatis.mapper")
 @SpringBootTest
 public class MybatisTest {
+
     @Autowired
-    public neilDomainMapper neilMapper;
+     public studentMapper studentMapper;
+//    MybatisTest(NeilMapper neilMapper){
+//        neilMapper=this.neilMapper;
+//    }
 
     @Test
     public void Test_InsertMapper(){
 
-        neilDomain model=neilDomain.builder()
-                .idneil(1123)
-                .neilname("neil专有")
+        student model=student.builder()
+                .id(1122)
+                .name("neil专有")
                 .build();
-        int i= neilMapper.insert(model);
+        int i= studentMapper.insert(model);
         log.info("userRepository.deleteByUserId: "+i);
     }
 }
