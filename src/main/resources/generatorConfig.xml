@@ -28,6 +28,10 @@
                         password="${jdbc.password}">
         </jdbcConnection>
 
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>
+
         <javaModelGenerator targetPackage="com.neil.spboot.mybatis.model" targetProject="src/main/java"/>
 
         <sqlMapGenerator targetPackage="mybatis" targetProject="./src/main/resources"/>
@@ -37,9 +41,9 @@
         <!--<table tableName="basic_config" alias="basicConfig">-->
         <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true"/>&ndash;&gt;-->
         <!--</table>-->
-        <table enableDeleteByExample="false" enableDeleteByPrimaryKey="false" enableInsert="true"
-               enableUpdateByExample="false" enableUpdateByPrimaryKey="false" tableName="test"
-               domainObjectName="testDomain"
+        <table schema="test" enableDeleteByExample="false" enableDeleteByPrimaryKey="false" enableInsert="true"
+               enableUpdateByExample="false" enableUpdateByPrimaryKey="false" tableName="neil"
+               domainObjectName="neilDomain"
         >
             <property name="useActualColumnNames" value="false"/>
         </table>
