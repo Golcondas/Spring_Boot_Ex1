@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import javax.transaction.Transactional;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -59,16 +60,8 @@ public class HelloWorldControlerTests {
             DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
             String formattedDate = dateFormat.format(date);
 
-//            User user1= User.builder()
-//                    .userName("aa1")
-//                    .email("aa@126.com")
-//                    .password("aa123456")
-//                    .build();
-//            User i= userRepository.save(user1);
-//            log.info("userRepository.save: "+i);
-
         User user2= User.builder()
-                .nickName("美男子")
+                .nickName("帅")
                 .regTime(new Date())
                 .account("neilaccount")
                 .fullname("XXX")
@@ -78,6 +71,17 @@ public class HelloWorldControlerTests {
                 .build();
         User j= userRepository.save(user2);
         log.info("userRepository.save: "+j);
+    }
 
+    @Test
+    public void Test_modifyByIdAndUserId(){
+        int i=userRepository.modifyByIdAndUserId("11232",2L);
+        log.info("userRepository.modifyByIdAndUserId: "+i);
+    }
+
+    @Test
+    public void Test_delete(){
+        int i=userRepository.deleteByUserId(2L);
+        log.info("userRepository.deleteByUserId: "+i);
     }
 }

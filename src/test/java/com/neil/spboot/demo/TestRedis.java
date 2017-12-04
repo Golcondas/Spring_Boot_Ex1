@@ -45,7 +45,7 @@ public class TestRedis {
         ValueOperations<String, User> operations=redisTemplate.opsForValue();
         operations.set("com.neox", user);
         operations.set("com.neo.f", user,1, TimeUnit.HOURS);
-//        Thread.sleep(1000);
+       Thread.sleep(1000);
         //redisTemplate.delete("com.neo.f");
         boolean exists=redisTemplate.hasKey("com.neo.f");
         if(exists){
