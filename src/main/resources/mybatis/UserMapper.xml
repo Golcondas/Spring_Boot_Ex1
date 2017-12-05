@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neil.spboot.mybatis.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.neil.spboot.mybatis.model.User">
+    <id column="usrid" jdbcType="BIGINT" property="usrid" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="fullname" jdbcType="VARCHAR" property="fullname" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nick_name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="reg_time" />
+    <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    usrid, account, email, fullname, nick_name, password, reg_time, user_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where usrid = #{usrid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user
+    where usrid = #{usrid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.neil.spboot.mybatis.model.User">
+    insert into user (usrid, account, email, 
+      fullname, nick_name, password, 
+      reg_time, user_name)
+    values (#{usrid,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{fullname,jdbcType=VARCHAR}, #{nick_name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{reg_time,jdbcType=TIMESTAMP}, #{user_name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neil.spboot.mybatis.model.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usrid != null">
+        usrid,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="fullname != null">
+        fullname,
+      </if>
+      <if test="nick_name != null">
+        nick_name,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="reg_time != null">
+        reg_time,
+      </if>
+      <if test="user_name != null">
+        user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="usrid != null">
+        #{usrid,jdbcType=BIGINT},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null">
+        #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="nick_name != null">
+        #{nick_name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="reg_time != null">
+        #{reg_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="user_name != null">
+        #{user_name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neil.spboot.mybatis.model.User">
+    update user
+    <set>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null">
+        fullname = #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="nick_name != null">
+        nick_name = #{nick_name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="reg_time != null">
+        reg_time = #{reg_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="user_name != null">
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where usrid = #{usrid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neil.spboot.mybatis.model.User">
+    update user
+    set account = #{account,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      fullname = #{fullname,jdbcType=VARCHAR},
+      nick_name = #{nick_name,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      reg_time = #{reg_time,jdbcType=TIMESTAMP},
+      user_name = #{user_name,jdbcType=VARCHAR}
+    where usrid = #{usrid,jdbcType=BIGINT}
+  </update>
+</mapper>
