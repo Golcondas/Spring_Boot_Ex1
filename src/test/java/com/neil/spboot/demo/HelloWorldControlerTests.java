@@ -3,6 +3,7 @@ package com.neil.spboot.demo;
 import com.neil.spboot.controller.HelloWorldController;
 import com.neil.spboot.controller.NeilController;
 import com.neil.spboot.domain.User;
+import com.neil.spboot.mybatis.mapper.NeilMapper;
 import com.neil.spboot.repository.UserRepository;
 import lombok.extern.log4j.Log4j;
 import org.junit.Assert;
@@ -34,6 +35,9 @@ import java.util.Date;
 public class HelloWorldControlerTests {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private NeilMapper neilMapper;
 
     private MockMvc mvc;
     @Before

@@ -55,7 +55,4 @@ public class TestRedis {
         }
         // Assert.assertEquals("aa", operations.get("com.neo.f").getUserName());
     }
-
-
-
 }
