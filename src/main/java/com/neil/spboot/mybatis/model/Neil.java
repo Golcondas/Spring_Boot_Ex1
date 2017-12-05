@@ -1,14 +1,12 @@
 package com.neil.spboot.mybatis.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Builder
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@ToString
+@Builder
 public class Neil {
     private Integer idneil;
 

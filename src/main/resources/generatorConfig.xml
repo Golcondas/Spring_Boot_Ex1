@@ -47,7 +47,19 @@
             <!--<property name="useActualColumnNames" value="true"/>-->
         <!--</table>-->
 
-        <table schema="test" tableName="student" domainObjectName="student"
+        <table schema="test" tableName="user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="test" tableName="student" domainObjectName="Student"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="test" tableName="neil" domainObjectName="Neil"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>

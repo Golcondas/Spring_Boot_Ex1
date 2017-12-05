@@ -37,7 +37,7 @@
   <sql id="Base_Column_List">
     idneil, neilname
   </sql>
-  <select id="selectByExample" parameterType="com.neil.spboot.mybatis.model.NeilExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.neil.spboot.mybatis.model.Neil" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -74,7 +74,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.neil.spboot.mybatis.model.NeilExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.neil.spboot.mybatis.model.Neil" resultType="java.lang.Long">
     select count(*) from neil
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

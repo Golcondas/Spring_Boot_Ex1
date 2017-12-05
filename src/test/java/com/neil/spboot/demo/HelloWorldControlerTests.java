@@ -6,7 +6,6 @@ import com.neil.spboot.domain.User;
 import com.neil.spboot.mybatis.mapper.NeilMapper;
 import com.neil.spboot.repository.UserRepository;
 import lombok.extern.log4j.Log4j;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +19,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import javax.transaction.Transactional;
 import java.text.DateFormat;
 import java.util.Date;
 

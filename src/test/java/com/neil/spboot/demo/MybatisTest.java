@@ -1,9 +1,9 @@
 package com.neil.spboot.demo;
 
-import com.neil.spboot.mybatis.mapper.NeilMapper;
-import com.neil.spboot.mybatis.mapper.studentMapper;
-import com.neil.spboot.mybatis.model.Neil;
-import com.neil.spboot.mybatis.model.student;
+import com.neil.spboot.mybatis.mapper.StudentMapper;
+import com.neil.spboot.mybatis.mapper.UserMapper;
+import com.neil.spboot.mybatis.model.Student;
+import com.neil.spboot.mybatis.model.User;
 import lombok.extern.log4j.Log4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,20 +21,31 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class MybatisTest {
 
+//    @Autowired
+//     public studentMapper studentMapper;
+
     @Autowired
-     public studentMapper studentMapper;
-//    MybatisTest(NeilMapper neilMapper){
-//        neilMapper=this.neilMapper;
-//    }
+    public UserMapper userMapper;
+
+    @Autowired
+    public StudentMapper studentMapper;
 
     @Test
-    public void Test_InsertMapper(){
-
-        student model=student.builder()
-                .id(1122)
-                .name("neil专有")
+    public  void Test_InserUserMapper(){
+        User model= User.builder()
+                .account("小明")
                 .build();
-        int i= studentMapper.insert(model);
-        log.info("userRepository.deleteByUserId: "+i);
+       int i= userMapper.insert(model);
+        log.info("-----------userMapper.insert: -----------"+i);
+    }
+
+    @Test
+    public void  Test_studentMapper(){
+        Student student=Student.builder()
+                .id(1)
+                .name("西游")
+                .build();
+        int i=studentMapper.insert(student);
+        log.info("-----------studentMapper.insert: -----------"+i);
     }
 }

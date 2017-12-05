@@ -1,15 +1,13 @@
 package com.neil.spboot.mybatis.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@ToString
 @Builder
-public class student {
+public class Student {
     private Integer id;
 
     private String name;
